@@ -1,0 +1,29 @@
+# Ignore executables and compiled files
+*.exe
+*.out
+*.o
+*.obj
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignore logs
+*.log
+
+# Ignore Python cache if using any
+__pycache__/
+*.py[cod]
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+
+# Ignore zip files
+*.zip

@@ -7,14 +7,15 @@ def Minimum(Arr, starting, ending):
     for i in range(len(Arr) + 1):
         if Arr[i] == min: return i
         
-def Sort4(Arr):
+def Sort4(arr):
+    arr = arr[:]
     newArr = []
-    for i in range(len(Arr)):
-        minIndex = Minimum(Arr, 0, len(Arr))
-        min = Arr[minIndex]
-        newArr.append(min)
-        Arr.remove(min)
+    while arr:
+        minIndex = Minimum(arr, 0, len(arr))
+        newArr.append(arr[minIndex])
+        arr.pop(minIndex)
     return newArr
+
 
 arr = [2, 3, 400 ,-9, 6, 5, 90, 0]
 print(Sort4(arr))

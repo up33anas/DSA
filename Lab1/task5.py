@@ -1,8 +1,4 @@
-# Function
-def StringReverse(str, starting, ending):
-    if starting == ending: return 
-    StringReverse(str, starting+1, ending)
-    print(str[starting], end="")
+from funcs import StringReverse
 
 # Driver
 s = "University of Engineering and Technology Lahore"

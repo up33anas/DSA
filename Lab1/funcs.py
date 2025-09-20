@@ -55,7 +55,6 @@ def SumRecursive(number):
 
 #
 def ColumnWiseSum(Mat):
-   
     sumArr = []
     for i in range(len(Mat[0])):
         sum = 0

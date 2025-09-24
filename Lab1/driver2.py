@@ -7,7 +7,6 @@ array  = SearchB(X, num)
 
 n = len(array)
 
-
 print("Index:", end=" ") if n else print("Entered number not found", end="")
 
 for i in range(n):

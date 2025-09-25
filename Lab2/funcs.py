@@ -8,13 +8,12 @@ def RandomArray(size):
 # Insertion sort
 def InsertionSort(array, start, end):
     for i in range(start + 1, end):
-        key = array[i]
-        j = i - 1
-        # use array instead of arr, and respect start index
-        while j >= start and array[j] > key:
-            array[j + 1] = array[j]
-            j -= 1
-        array[j + 1] = key
+        current = array[i]
+        prev = i - 1
+        while prev >= start and array[prev] > current:
+            array[prev + 1] = array[prev]
+            prev -= 1
+        array[prev + 1] = current
     return array
 
 # Merge Sort
@@ -99,3 +98,14 @@ def writeToCSV(arr, filename):
         writer = csv.writer(file)
         for item in arr:
             writer.writerow([item])
+
+# Shuffle the letters in a word
+# def ShuffleArray(array, start, end):
+#     subArr = array[start:end]
+#     random.shuffle(subArr)
+#     array[start:end] = subArr
+def ShuffleArray(array, start, end):
+    """Shuffle array[start:end] in place."""
+    sub = array[start:end]
+    random.shuffle(sub)
+    array[start:end] = sub

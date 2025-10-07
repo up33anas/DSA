@@ -9,18 +9,18 @@ def subtract_matrices(A, B):
 def split_matrix(M):
     n = len(M)
     mid = n // 2
-    
+
     # Sub-matrices
     M11 = [row[:mid] for row in M[:mid]]
     M12 = [row[mid:] for row in M[:mid]]
     M21 = [row[:mid] for row in M[mid:]]
     M22 = [row[mid:] for row in M[mid:]]
-    
+
     return M11, M12, M21, M22
-    
+
 def MatMulStrassen(A, B):    
     if len(A) == 1:  return [[A[0][0] * B[0][0]]]
-    
+
     # Make sub-matrices
     A11, A12, A21, A22 = split_matrix(A)
     B11, B12, B21, B22 = split_matrix(B)

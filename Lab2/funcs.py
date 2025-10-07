@@ -8,12 +8,12 @@ def RandomArray(size):
 # Insertion sort
 def InsertionSort(array, start, end):
     for i in range(start + 1, end):
-        current = array[i]
-        prev = i - 1
-        while prev >= start and array[prev] > current:
-            array[prev + 1] = array[prev]
-            prev -= 1
-        array[prev + 1] = current
+        key = array[i]
+        j = i - 1
+        while j >= start and array[j] > key:
+            array[j + 1] = array[j]
+            j -= 1
+        array[j + 1] = key
     return array
 
 # Merge Sort
@@ -58,7 +58,7 @@ def MergeSort(array, start, end):
 def HybridMergeSort(array, start, end, k):
     if end - start + 1 <= k:       # size of this slice <= k
         InsertionSort(array, start, end + 1)  # end is exclusive in our InsertionSort
-    return
+        return 
 
     if start < end: 
         mid = start + (end - start) // 2
@@ -74,7 +74,7 @@ def BubbleSort(array, start, end):
     n = end - start                # length of subarray
     for i in range(n - 1):
         swapped = False
-        for j in range(start, start + n - 1 - i):
+        for j in range(start, end- i - 1):
             if array[j] > array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
                 swapped = True

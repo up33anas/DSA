@@ -1,22 +1,28 @@
 def CountingSort(input):
-    k = len(input)
-    count = [0] * (k + 1)
-    output = [0] * k
-    m = max(input)
+    assert all(isinstance(x, int) for x in input), "List elements must be integers"
 
-    for j in input:
-        count[j] += 1
+    minimum = min(input)
+    maximum = max(input)
+    range_of_values = maximum - minimum + 1
 
-    for i in range(1, m + 1):
+    count = [0] * range_of_values
+    output = [0] * len(input)
+
+    # Shift values to handle negatives
+    for num in input:
+        count[num - minimum] += 1
+
+    # Cumulative count
+    for i in range(1, len(count)):
         count[i] += count[i - 1]
 
-    for i in range(len(input) - 1, -1, -1):
-        j = input[i]
-        output[count[j] - 1] = j
-        count[j] -= 1
+    # Place elements in output (stable)
+    for num in reversed(input):
+        count[num - minimum] -= 1
+        output[count[num - minimum]] = num
 
     return output
 
-arr = [2, 5, 3, 0, 2, 3, 0, 3]
+arr = [-5, -10, 0, -3, 8, 5, -1, 10]
 ans = CountingSort(arr)
 print(ans)
